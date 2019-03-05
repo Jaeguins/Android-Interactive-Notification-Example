@@ -1,12 +1,14 @@
 package com.slack.joiple.noti_2048;
 
 import android.app.Notification;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.support.v4.app.NotificationCompat;
@@ -43,6 +45,16 @@ public class NotiBackService extends Service{
     public int onStartCommand(Intent intent, int flags, int startId) {
 
         mNotificationManager=(NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+
+            /* Create or update. */
+            NotificationChannel channel = new NotificationChannel("CompatChannel",
+                    "Channel for Compatability",
+                    NotificationManager.IMPORTANCE_DEFAULT);
+            mNotificationManager.createNotificationChannel(channel);
+        }
+
         upIntent =new Intent(getApplicationContext(),NotiBackService.class);
         rightIntent =new Intent(getApplicationContext(),NotiBackService.class);
         leftIntent =new Intent(getApplicationContext(),NotiBackService.class);
@@ -66,6 +78,7 @@ public class NotiBackService extends Service{
         notiBuilder.setSmallIcon(R.drawable.ic_launcher_foreground);
         notiBuilder.setContentTitle("Noti 2048");
         notiBuilder.setContentText("swipe downIntent to open");
+        notiBuilder.setChannelId("CompatChannel");
 
         collapsed=new RemoteViews(getPackageName(),R.layout.notification);
         expanded=new RemoteViews(getPackageName(),R.layout.notification_expanded);
