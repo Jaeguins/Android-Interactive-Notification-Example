@@ -7,5 +7,11 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
-
+    <style name="cell">
+        <item name="android:background">@color/buttonOrange</item>
+        <item name="android:layout_margin">2dp</item>
+    </style>
+    <style name="focus" parent="cell">
+        <item name="android:background">@color/buttonGreen</item>
+    </style>
 </resources>

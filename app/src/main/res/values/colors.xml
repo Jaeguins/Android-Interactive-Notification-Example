@@ -3,4 +3,7 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="notiControlBackground">#888888</color>
+    <color name="buttonOrange">#ee5500</color>
+    <color name="buttonGreen">#55ee00</color>
 </resources>
