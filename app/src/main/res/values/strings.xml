@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Noti-2048</string>
     <string name="start">Start</string>
+    <string name="stop">Stop</string>
+    <string name="active">Active</string>
+    <string name="inactive">Inactive</string>
 </resources>
